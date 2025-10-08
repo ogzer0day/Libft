@@ -1,0 +1,8 @@
+
+int	ft_tolower(int ch)
+{
+	if (ch >= 'A' && ch <= 'Z')
+		return (ch + 32);
+	else
+		return (ch);
+}
