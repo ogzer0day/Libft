@@ -1,15 +1,16 @@
-#include <stddef.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzougari <mzougari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 08:28:08 by mzougari          #+#    #+#             */
+/*   Updated: 2025/10/15 10:32:50 by mzougari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_strlen(const char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -26,7 +27,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		while (i + j < len && big[i + j] == little[j] && little[j] != '\0')
 			j++;
 		if (little[j] == '\0')
-			return (char *)(big + i);
+			return ((char *)(big + i));
 		i++;
 	}
 	return (NULL);
