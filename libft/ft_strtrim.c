@@ -1,7 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzougari <mzougari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 08:32:15 by mzougari          #+#    #+#             */
+/*   Updated: 2025/10/19 10:11:12 by mzougari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char	is_valid(char const *set, char c)
+#include "libft.h"
+
+static char	is_valid(char const *set, char c)
 {
 	int	i;
 
@@ -15,17 +26,7 @@ char	is_valid(char const *set, char c)
 	return (0);
 }
 
-int	ft_strlen(char const *s1)
-{
-	int	len;
-
-	len = 0;
-	while (s1[len])
-		len++;
-	return (len);
-}
-
-int	len(char const *s1, int i, int j)
+static int	len(char const *s1, int i, int j)
 {
 	int	len;
 
