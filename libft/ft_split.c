@@ -1,6 +1,18 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzougari <mzougari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 08:22:15 by mzougari          #+#    #+#             */
+/*   Updated: 2025/10/19 10:10:07 by mzougari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	count_word(const char *str, char c)
+#include "libft.h"
+
+static int	count_word(const char *str, char c)
 {
 	int	i;
 	int	count;
@@ -21,7 +33,7 @@ int	count_word(const char *str, char c)
 	return (count);
 }
 
-char	*solve_words(const char *str, char c, int *index)
+static char	*solve_words(const char *str, char c, int *index)
 {
 	int		i;
 	int		len_word;
