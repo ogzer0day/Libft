@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzougari <mzougari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 08:17:47 by mzougari          #+#    #+#             */
+/*   Updated: 2025/10/19 10:17:05 by mzougari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdlib.h>
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -17,9 +28,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		temp = next_node;
 	}
 	*lst = NULL;
-}
-
-void	del(void *node)
-{
-	free(node);
 }
