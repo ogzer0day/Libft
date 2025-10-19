@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzougari <mzougari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 08:25:35 by mzougari          #+#    #+#             */
+/*   Updated: 2025/10/17 09:05:29 by mzougari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int i = 0;
-	int len = 0;
+	unsigned int	i;
+	size_t			len;
 
+	i = 0;
+	len = 0;
 	while (src[len])
 		len++;
-
 	if (size == 0)
 		return (len);
-
-	while (i < size && src[i])
+	while (i < size - 1 && src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i++] = '\0';
-
+	dest[i] = '\0';
 	return (len);
 }
