@@ -1,10 +1,29 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzougari <mzougari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 08:16:58 by mzougari          #+#    #+#             */
+/*   Updated: 2025/10/18 13:19:41 by mzougari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	len(long n)
+#include "libft.h"
+
+static int	len(long n)
 {
 	int	count;
 
-	count = (n <= 0);
+	count = 0;
+	if (n == 0)
+		return (1);
+	else if (n < 0)
+	{
+		count++;
+		n = -n;
+	}
 	while (n > 0)
 	{
 		count++;
@@ -13,45 +32,63 @@ int	len(long n)
 	return (count);
 }
 
-char	*reverse_number(long num)
+static char	*reverse_number(long num, char *str, int *index)
+{
+	int		j;
+	char	*buff;
+
+	j = 0;
+	buff = malloc((len(num) + 1) * sizeof(char));
+	if (!buff)
+		return (NULL);
+	if (num < 0)
+		buff[j++] = '-';
+	while (--(*index) >= 0)
+		buff[j++] = str[(*index)];
+	buff[j] = '\0';
+	free(str);
+	return (buff);
+}
+
+static char	*convert(long num, int *signe, int *index)
 {
 	char	*buff;
-	char	*buff2;
-	char	*first;
-	int		i;
 
 	buff = malloc((len(num) + 1) * sizeof(char));
-	buff2 = malloc((len(num) + 1) * sizeof(char));
-	if (!buff || !buff2)
+	if (!buff)
 		return (NULL);
-	first = buff2;
-	i = 0;
+	if (num == 0)
+	{
+		buff[(*index)++] = '0';
+		buff[(*index)] = '\0';
+		return (buff);
+	}
 	if (num < 0)
 	{
-		*buff2++ = '-';
 		num = -num;
+		*signe = -1;
 	}
-	if (num == 0)
-		buff[i++] = '0';
-	while (num > 0)
+	while (num != 0)
 	{
-		buff[i++] = (num % 10) + '0';
+		buff[(*index)++] = (num % 10) + '0';
 		num /= 10;
 	}
-	buff[i] = '\0';
-	i--;
-	while (i >= 0)
-		*buff2++ = buff[i--];
-	*buff2 = '\0';
-	free(buff);
-	return (first);
+	buff[*index] = '\0';
+	return (buff);
 }
+
 char	*ft_itoa(int n)
 {
 	long	num;
-	char	*str;
+	int		i;
+	char	*res;
+	int		signe;
 
 	num = n;
-	str = reverse_number(num);
-	return (str);
+	i = 0;
+	signe = 0;
+	res = convert(num, &signe, &i);
+	if (!res)
+		return (NULL);
+	return (reverse_number(num, res, &i));
 }
