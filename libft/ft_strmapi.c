@@ -1,14 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzougari <mzougari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 08:26:20 by mzougari          #+#    #+#             */
+/*   Updated: 2025/10/15 10:32:50 by mzougari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_strlen(char const *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
