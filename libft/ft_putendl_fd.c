@@ -1,10 +1,16 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzougari <mzougari@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 08:21:04 by mzougari          #+#    #+#             */
+/*   Updated: 2025/10/15 10:32:50 by mzougari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_putstr_fd(char *str, int fd)
-{
-	while (*str)
-		write(fd, str++, 1);
-}
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
